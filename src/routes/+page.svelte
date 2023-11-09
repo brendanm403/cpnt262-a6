@@ -1,5 +1,5 @@
 <script>
-  const objArr = [
+  let objArr = [
     {fName: "Tom", lName: "Riddle", house: "Slytherin"},
     {fName: "Harry", lName: "Potter", house: "Gryffindor"},
     {fName: "Hermione", lName: "Granger", house: "Gryffindor"},
