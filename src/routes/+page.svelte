@@ -64,4 +64,4 @@
 <input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getLastName} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="house">Character House</label>
 <input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getHouse} on:focus={resetInput}>
-<Button on:renderCharacter={displayUserInput}/>
+<Button on:renderCharacter={displayUserInput} buttonText="Add Character"/>
