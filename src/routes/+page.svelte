@@ -46,6 +46,10 @@
   const resetInput = function(event) {
     event.target.value = "";
   }
+
+  const toggle = function() {
+    window.document.body.classList.toggle("dark-mode");
+  }
 </script>
 
 <main class="flex flex-wrap justify-center gap-10 p-5">
@@ -64,4 +68,12 @@
 <input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getLastName} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="house">Character House</label>
 <input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getHouse} on:focus={resetInput}>
-<Button on:renderCharacter={displayUserInput} buttonText="Add Character"/>
+<Button on:handleClick={displayUserInput} buttonText="Add Character"/>
+<Button buttonText="Toggle" on:handleClick={toggle}/>
+
+<style>
+  :global(body.dark-mode) {
+    background-color: #000;
+    color: aliceblue;
+  }
+</style>
