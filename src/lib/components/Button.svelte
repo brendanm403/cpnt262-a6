@@ -3,7 +3,7 @@
   const dispatch = createEventDispatcher();
   // function dispatch //
   const defaultFn = function() {
-    dispatch("renderCharacter", {})
+    dispatch("handleClick", {})
   }
   export let buttonText = "button text"
 </script>
