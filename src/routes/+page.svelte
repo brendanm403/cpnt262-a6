@@ -16,9 +16,15 @@
   // console.log(inputObj);
 
   const displayUserInput = function() {
-    console.log(firstName);
-    console.log(lastName);
-    console.log(house);  
+    // make a new object with existing object as prototype //
+    let newChar = Object.create(objArr[0]);
+    // set the values for each key //
+    newChar.fName =  firstName;
+    newChar.lName = lastName;
+    newChar.house = house;
+    console.log(newChar);
+    // reassign array to trigger reactivity //
+    objArr = [...objArr, newChar];
   }
 
   // store the value entered in first name input in global variable //
@@ -35,9 +41,15 @@
   const getHouse = function(event) {
     house = event.target.value; 
   }
+
+  // clears input field when clicked on //
+  const resetInput = function(event) {
+    event.target.value = "";
+  }
 </script>
 
 <main class="flex flex-wrap justify-center gap-10 p-5">
+  <!-- loop through array to render object values on screen -->
   {#each objArr as character}
     <div>
       <h2 class="text-2xl mb-3">{character.fName} {character.lName}</h2>
@@ -47,10 +59,9 @@
 </main>
 
 <label class="mt-12 w-56 mx-auto block text-center" for="fName">Character First Name</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="fName" on:change={getFirstName}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="fName" on:change={getFirstName} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="lName">Character Last Name</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getLastName}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getLastName} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="house">Character House</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getHouse}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getHouse} on:focus={resetInput}>
 <Button on:renderCharacter={displayUserInput}/>
-
