@@ -14,37 +14,44 @@
   // let inputObj = Object.create(objArr[0]);
   // inputObj.fName = "carl"
   // console.log(inputObj);
-
+  console.log(firstName, lastName, house);
   const displayUserInput = function() {
-    // make a new object with existing object as prototype //
-    let newChar = Object.create(objArr[0]);
-    // set the values for each key //
-    newChar.fName =  firstName;
-    newChar.lName = lastName;
-    newChar.house = house;
-    console.log(newChar);
-    // reassign array to trigger reactivity //
-    objArr = [...objArr, newChar];
+    // prevent user from submitting undefined values //
+    if (typeof firstName === "undefined" || typeof lastName === "undefined" || typeof house === "undefined") {
+      alert("Fields must not be left empty!"); 
+    } else {
+      // make a new object with existing object as prototype //
+      let newChar = Object.create(objArr[0]);
+      // set the values for each key //
+      newChar.fName = firstName;
+      newChar.lName = lastName;
+      newChar.house = house;
+      console.log(newChar);
+      // reassign array to trigger reactivity //
+      objArr = [...objArr, newChar];
+    }
   }
 
-  // store the value entered in first name input in global variable //
-  const getFirstName = function(event) {
-    firstName = event.target.value; 
+  const getInputValues = function(event) {
+    if (event.target.id === "fName") {
+      firstName = event.target.value;
+    } else if (event.target.id === "lName") {
+      lastName = event.target.value;
+    } else {
+      house = event.target.value;
+    }
   }
 
-  // store the value entered in last name input in global variable //
-  const getLastName = function(event) {
-    lastName = event.target.value; 
-  }
-
-  // store the value entered in house input in global variable //
-  const getHouse = function(event) {
-    house = event.target.value; 
-  }
-
-  // clears input field when clicked on //
+  // clears input field when clicked on, reset variable to undefined so user must type in new value //
   const resetInput = function(event) {
     event.target.value = "";
+    if (event.target.id === "fName") {
+      firstName = undefined;
+    } else if (event.target.id === "lName") {
+      lastName = undefined;
+    } else {
+      house = undefined;
+    }
   }
 
   const toggle = function() {
@@ -63,15 +70,18 @@
 </main>
 
 <label class="mt-12 w-56 mx-auto block text-center" for="fName">Character First Name</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="fName" on:change={getFirstName} on:focus={resetInput}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="fName" on:change={getInputValues} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="lName">Character Last Name</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getLastName} on:focus={resetInput}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="lName" on:change={getInputValues} on:focus={resetInput}>
 <label class="mt-5 w-56 mx-auto block text-center" for="house">Character House</label>
-<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getHouse} on:focus={resetInput}>
+<input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getInputValues} on:focus={resetInput}>
 <Button on:handleClick={displayUserInput} buttonText="Add Character"/>
 <Button buttonText="Toggle" on:handleClick={toggle}/>
 
 <style>
+  :global(body) {
+    transition: background-color 0.5s;
+  }
   :global(body.dark-mode) {
     background-color: #000;
     color: aliceblue;
