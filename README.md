@@ -1,38 +1,17 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# cpnt 262 Assignment 6: Reactivity and Events
+- brendan malycky
+- [netlify deployment]()
+## Search Terms
+### dark mode toggle
+- Make a dark mode toggle button in svelte
+- search: dark mode svelte
+- [first result](https://svelte.dev/repl/ed4fef4beceb4b0eb295d1f9fdf3bd62?version=3.6.9)
+- the first result for this was perfect
+### clear input field
+- remove previous text entered in input field
+- search: empty text input js
+- [first result](https://stackoverflow.com/questions/4135818/how-to-clear-a-textbox-using-javascript)
+- useful terms: input js 
+- second search: "clear" input js
+- [first result](https://www.w3schools.com/howto/howto_html_clear_input.asp)
+- used quotations and used term clear instead of empty
