@@ -7,14 +7,11 @@
     {fName: "Cedric", lName: "Diggory", house: "Ravenclaw"},
     {fName: "Draco", lName: "Malfoy", house: "Slytherin"}, 
   ]
+  
   let firstName;
   let lastName;
   let house;
-  // makes a new object based on an existing object //
-  // let inputObj = Object.create(objArr[0]);
-  // inputObj.fName = "carl"
-  // console.log(inputObj);
-  console.log(firstName, lastName, house);
+  
   const displayUserInput = function() {
     // prevent user from submitting undefined values //
     if (typeof firstName === "undefined" || typeof lastName === "undefined" || typeof house === "undefined") {
@@ -32,6 +29,7 @@
     }
   }
 
+  // gets the user input and stores it in a variable depending on which input is fires the event //
   const getInputValues = function(event) {
     if (event.target.id === "fName") {
       firstName = event.target.value;
@@ -54,6 +52,7 @@
     }
   }
 
+  // function to toggle between light and dark mode, passed to toggle button //
   const toggle = function() {
     window.document.body.classList.toggle("dark-mode");
   }
@@ -78,6 +77,7 @@
 <Button on:handleClick={displayUserInput} buttonText="Add Character"/>
 <Button buttonText="Toggle" on:handleClick={toggle}/>
 
+<!--  styles for dark mode  -->
 <style>
   :global(body) {
     transition: background-color 0.5s;
