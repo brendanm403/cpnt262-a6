@@ -1,6 +1,6 @@
 # cpnt 262 Assignment 6: Reactivity and Events
 - brendan malycky
-- [netlify deployment]()
+- [netlify deployment](https://clever-haupia-9464c3.netlify.app/)
 ## Search Terms
 ### dark mode toggle
 - Make a dark mode toggle button in svelte
