@@ -1,5 +1,6 @@
 <script>
   import Button from "$lib/components/Button.svelte";
+	import Card from "../lib/Card.svelte";
   let objArr = [
     {fName: "Tom", lName: "Riddle", house: "Slytherin"},
     {fName: "Harry", lName: "Potter", house: "Gryffindor"},
@@ -11,6 +12,8 @@
   let firstName;
   let lastName;
   let house;
+
+  let cardHeading = "Slytherin"
   
   const displayUserInput = function() {
     // prevent user from submitting undefined values //
@@ -76,6 +79,9 @@
 <input class="block bg-black text-green-200 border-2 rounded-lg border-green-400 mx-auto" type="text" id="house" on:change={getInputValues} on:focus={resetInput}>
 <Button on:handleClick={displayUserInput} buttonText="Add Character"/>
 <Button buttonText="Toggle" on:handleClick={toggle}/>
+
+<!-- I had to put this together super quick because I thought step 4 was removed but then I saw it appeared again in the instructions, hopefully this is somewhat what you were looking for for that step. -->
+<Card />
 
 <!--  styles for dark mode  -->
 <style>
