@@ -5,7 +5,7 @@
     {fName: "Tom", lName: "Riddle", house: "Slytherin"},
     {fName: "Harry", lName: "Potter", house: "Gryffindor"},
     {fName: "Hermione", lName: "Granger", house: "Gryffindor"},
-    {fName: "Cedric", lName: "Diggory", house: "Ravenclaw"},
+    {fName: "Cedric", lName: "Diggory", house: "Hufflepuff"},
     {fName: "Draco", lName: "Malfoy", house: "Slytherin"}, 
   ]
   
